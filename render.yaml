@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: eaph-pos
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app_secure:app
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.0
+      - key: FLASK_ENV
+        value: production
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DATABASE_URL
+        fromDatabase:
+          name: eaph-db
+          property: connectionString
+
+databases:
+  - name: eaph-db
+    plan: free
+    databaseName: pos_db
+    user: pos_user
