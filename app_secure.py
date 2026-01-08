@@ -149,6 +149,7 @@ class Product(db.Model):
     category = db.Column(db.String(100), index=True)
     description = db.Column(db.Text)
     price = db.Column(db.Numeric(10, 2), nullable=False)
+    wholesale_price = db.Column(db.Numeric(10, 2), default=0)
     cost = db.Column(db.Numeric(10, 2), default=0)
     quantity = db.Column(db.Integer, default=0)
     reorder_level = db.Column(db.Integer, default=10)
@@ -169,6 +170,7 @@ class Product(db.Model):
             'category': self.category,
             'description': self.description,
             'price': float(self.price),
+            'wholesale_price': float(self.wholesale_price) if self.wholesale_price else float(self.price),
             'cost': float(self.cost),
             'quantity': self.quantity,
             'reorder_level': self.reorder_level,
@@ -620,6 +622,7 @@ def handle_products(current_user):
                 category=data.get('category'),
                 description=data.get('description'),
                 price=Decimal(str(data['price'])),
+                wholesale_price=Decimal(str(data.get('wholesale_price', 0))),
                 cost=Decimal(str(data.get('cost', 0))),
                 quantity=data.get('quantity', 0),
                 reorder_level=data.get('reorder_level', 10),
@@ -665,6 +668,7 @@ def manage_product(current_user, product_id):
             if 'category' in data: product.category = data['category']
             if 'description' in data: product.description = data['description']
             if 'price' in data: product.price = Decimal(str(data['price']))
+            if 'wholesale_price' in data: product.wholesale_price = Decimal(str(data['wholesale_price']))
             if 'cost' in data: product.cost = Decimal(str(data.get('cost', 0)))
             if 'reorder_level' in data: product.reorder_level = int(data['reorder_level'])
             if 'unit' in data: product.unit = data['unit']
@@ -1749,15 +1753,15 @@ def init_db():
         if Product.query.count() == 0:
             sample_products = [
                 Product(name='Cardboard Box Small', sku='BOX-SM-001', category='Boxes', 
-                       price=50.0, cost=30.0, quantity=100, reorder_level=20),
+                       price=50.0, wholesale_price=45.0, cost=30.0, quantity=100, reorder_level=20),
                 Product(name='Cardboard Box Medium', sku='BOX-MD-001', category='Boxes', 
-                       price=75.0, cost=45.0, quantity=50, reorder_level=15),
+                       price=75.0, wholesale_price=68.0, cost=45.0, quantity=50, reorder_level=15),
                 Product(name='Cardboard Box Large', sku='BOX-LG-001', category='Boxes', 
-                       price=100.0, cost=60.0, quantity=25, reorder_level=10),
+                       price=100.0, wholesale_price=90.0, cost=60.0, quantity=25, reorder_level=10),
                 Product(name='Bubble Wrap Roll', sku='BUBBLE-001', category='Wrapping', 
-                       price=150.0, cost=90.0, quantity=30, reorder_level=10),
+                       price=150.0, wholesale_price=135.0, cost=90.0, quantity=30, reorder_level=10),
                 Product(name='Packaging Tape', sku='TAPE-001', category='Tapes', 
-                       price=80.0, cost=40.0, quantity=200, reorder_level=50),
+                       price=80.0, wholesale_price=70.0, cost=40.0, quantity=200, reorder_level=50),
             ]
             
             for product in sample_products:

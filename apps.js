@@ -17,6 +17,7 @@ class AppState {
         this.customers = [];
         this.cart = [];
         this.selectedCustomer = null;
+        this.isWholesale = false;
         this.selectedPaymentMethod = null;
         this.currentTab = 'pos';
     }
@@ -405,7 +406,7 @@ class Products {
                  onclick="Cart.addItem(${product.id})"
                  data-product-id="${product.id}">
                 <div class="product-name">${UI.escapeHtml(product.name)}</div>
-                <div class="product-price">${UI.formatCurrency(product.price)}</div>
+                <div class="product-price">${UI.formatCurrency(state.isWholesale ? (product.wholesale_price || product.price) : product.price)}</div>
                 <div class="product-stock">
                     <span>Stock: ${product.quantity} ${product.unit}</span>
                     ${product.low_stock ? '<span class="badge badge-warning">Low</span>' : ''}
@@ -466,6 +467,7 @@ class Products {
                             <th>SKU</th>
                             <th>Category</th>
                             <th>Price</th>
+                            <th>Wholesale</th>
                             <th>Stock</th>
                             <th>Unit</th>
                             <th>Actions</th>
@@ -478,6 +480,7 @@ class Products {
                                 <td>${p.sku}</td>
                                 <td>${p.category || '-'}</td>
                                 <td>${UI.formatCurrency(p.price)}</td>
+                                <td>${UI.formatCurrency(p.wholesale_price || p.price)}</td>
                                 <td><span class="${p.quantity <= p.reorder_level ? 'text-danger' : ''}">${p.quantity}</span></td>
                                 <td>${p.unit}</td>
                                 <td>
@@ -537,6 +540,7 @@ class Products {
         document.getElementById('editProductCategory').value = product.category || '';
         document.getElementById('editProductDescription').value = product.description || '';
         document.getElementById('editProductPrice').value = product.price;
+        document.getElementById('editProductWholesalePrice').value = product.wholesale_price || product.price;
         document.getElementById('editProductCost').value = product.cost;
         document.getElementById('editProductReorder').value = product.reorder_level;
         document.getElementById('editProductUnit').value = product.unit;
@@ -900,8 +904,8 @@ class Cart {
             state.cart.push({
                 product: product,
                 quantity: 1,
-                unit_price: product.price,
-                subtotal: product.price
+                unit_price: state.isWholesale ? (product.wholesale_price || product.price) : product.price,
+                subtotal: state.isWholesale ? (product.wholesale_price || product.price) : product.price
             });
         }
 
@@ -994,7 +998,7 @@ class Cart {
 
     static updateTotals() {
         const subtotal = state.cart.reduce((sum, item) => sum + item.subtotal, 0);
-        const tax = subtotal * 0.16;
+        const tax = 0;
         const discount = 0;
         const total = subtotal + tax - discount;
 
@@ -1013,7 +1017,7 @@ class Cart {
 
     static getTotal() {
         const subtotal = state.cart.reduce((sum, item) => sum + item.subtotal, 0);
-        const tax = subtotal * 0.16;
+        const tax = 0;
         return subtotal + tax;
     }
 }
@@ -1064,7 +1068,7 @@ class Sales {
 
     static updatePaymentTotal() {
         const subtotal = state.cart.reduce((sum, item) => sum + item.subtotal, 0);
-        const tax = subtotal * 0.16;
+        const tax = 0;
         const discount = parseFloat(document.getElementById('paymentDiscount').value) || 0;
         const total = Math.max(0, subtotal + tax - discount);
         
@@ -1130,7 +1134,6 @@ class Sales {
                     <div class="divider"></div>
                     <div class="totals">
                         <div class="item"><span>Subtotal:</span> <span>${UI.formatCurrency(receipt.subtotal)}</span></div>
-                        <div class="item"><span>Tax:</span> <span>${UI.formatCurrency(receipt.tax)}</span></div>
                         <div class="item"><span>Discount:</span> <span>${UI.formatCurrency(receipt.discount)}</span></div>
                         <div class="item" style="font-weight: bold; font-size: 14px; margin-top: 5px;">
                             <span>TOTAL:</span> <span>${UI.formatCurrency(receipt.total)}</span>
@@ -1172,7 +1175,7 @@ class Sales {
             btn.innerHTML = '⏳ Processing...';
 
             const subtotal = state.cart.reduce((sum, item) => sum + item.subtotal, 0);
-            const tax = subtotal * 0.16;
+            const tax = 0;
             const discount = parseFloat(document.getElementById('paymentDiscount').value) || 0;
             const total = Math.max(0, subtotal + tax - discount);
 
@@ -1184,7 +1187,7 @@ class Sales {
                 })),
                 payment_method: state.selectedPaymentMethod,
                 customer_id: state.selectedCustomer?.id,
-                tax_rate: 16,
+                tax_rate: 0,
                 discount: discount,
                 notes: document.getElementById('paymentNotes').value
             };
@@ -1653,6 +1656,7 @@ class Forms {
             category: document.getElementById('productCategory').value,
             description: document.getElementById('productDescription').value,
             price: parseFloat(document.getElementById('productPrice').value),
+            wholesale_price: parseFloat(document.getElementById('productWholesalePrice').value) || 0,
             cost: parseFloat(document.getElementById('productCost').value) || 0,
             quantity: parseInt(document.getElementById('productQuantity').value) || 0,
             reorder_level: parseInt(document.getElementById('productReorder').value) || 10,
@@ -1671,6 +1675,7 @@ class Forms {
             category: document.getElementById('editProductCategory').value,
             description: document.getElementById('editProductDescription').value,
             price: parseFloat(document.getElementById('editProductPrice').value),
+            wholesale_price: parseFloat(document.getElementById('editProductWholesalePrice').value) || 0,
             cost: parseFloat(document.getElementById('editProductCost').value) || 0,
             reorder_level: parseInt(document.getElementById('editProductReorder').value) || 10,
             unit: document.getElementById('editProductUnit').value
@@ -1794,6 +1799,17 @@ class App {
         this.setDefaultDates();
     }
 
+    static setPricingMode(mode) {
+        state.isWholesale = (mode === 'wholesale');
+        const wholesaleBtn = document.getElementById('wholesaleBtn');
+        const retailBtn = document.getElementById('retailBtn');
+        
+        if (wholesaleBtn) wholesaleBtn.className = state.isWholesale ? 'btn btn-warning' : 'btn btn-secondary';
+        if (retailBtn) retailBtn.className = !state.isWholesale ? 'btn btn-primary' : 'btn btn-secondary';
+        
+        Products.render();
+    }
+
     static renderMain() {
         UI.render(`
             <div class="container">
@@ -1830,6 +1846,10 @@ class App {
                 <div class="card">
                     <div class="card-header">
                         <span>Products</span>
+                        <div style="margin-left: 10px; display: flex; gap: 5px;">
+                            <button id="retailBtn" class="btn btn-primary" style="padding: 5px 10px; font-size: 12px;" onclick="App.setPricingMode('retail')">Retail</button>
+                            <button id="wholesaleBtn" class="btn btn-secondary" style="padding: 5px 10px; font-size: 12px;" onclick="App.setPricingMode('wholesale')">Wholesale</button>
+                        </div>
                         <input type="text" class="form-control" style="max-width: 300px;" 
                                placeholder="Search..." id="productSearch" 
                                oninput="Products.filter()">
@@ -1875,7 +1895,7 @@ class App {
                             <span id="subtotal">KSh 0.00</span>
                         </div>
                         <div class="summary-row">
-                            <span>Tax (16%):</span>
+                            <span>Tax (0%):</span>
                             <span id="tax">KSh 0.00</span>
                         </div>
                         <div class="summary-row">
@@ -2020,11 +2040,15 @@ class App {
                             <textarea class="form-control" id="productDescription"></textarea>
                         </div>
                         <div class="row">
-                            <div class="col-6 form-group">
+                            <div class="col-4 form-group">
                                 <label class="form-label">Price *</label>
                                 <input type="number" class="form-control" id="productPrice" step="0.01" required>
                             </div>
-                            <div class="col-6 form-group">
+                            <div class="col-4 form-group">
+                                <label class="form-label">Wholesale</label>
+                                <input type="number" class="form-control" id="productWholesalePrice" step="0.01">
+                            </div>
+                            <div class="col-4 form-group">
                                 <label class="form-label">Cost</label>
                                 <input type="number" class="form-control" id="productCost" step="0.01">
                             </div>
@@ -2074,11 +2098,15 @@ class App {
                             <textarea class="form-control" id="editProductDescription"></textarea>
                         </div>
                         <div class="row">
-                            <div class="col-6 form-group">
+                            <div class="col-4 form-group">
                                 <label class="form-label">Price *</label>
                                 <input type="number" class="form-control" id="editProductPrice" step="0.01" required>
                             </div>
-                            <div class="col-6 form-group">
+                            <div class="col-4 form-group">
+                                <label class="form-label">Wholesale</label>
+                                <input type="number" class="form-control" id="editProductWholesalePrice" step="0.01">
+                            </div>
+                            <div class="col-4 form-group">
                                 <label class="form-label">Cost</label>
                                 <input type="number" class="form-control" id="editProductCost" step="0.01">
                             </div>
