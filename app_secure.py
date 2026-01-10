@@ -25,19 +25,18 @@ from reportlab.lib.styles import getSampleStyleSheet
 # Load environment variables
 load_dotenv()
 
+# Get the absolute path of the current directory to ensure the DB file is found correctly
+basedir = os.path.abspath(os.path.dirname(__file__))
+
 # ==================== CONFIGURATION ====================
 
 class Config:
     FLASK_ENV = os.environ.get('FLASK_ENV', 'development')
-    SECRET_KEY = os.environ.get('SECRET_KEY')
-    
-    # Generate secure secret key if not provided
-    if not SECRET_KEY:
-        SECRET_KEY = secrets.token_hex(32)
-        print(f"WARNING: Using auto-generated SECRET_KEY: {SECRET_KEY[:10]}...")
-        print("For production, set a permanent SECRET_KEY environment variable.")
+    # Set a default secret key to fix the warning and keep sessions valid during dev
+    SECRET_KEY = os.environ.get('SECRET_KEY', 'dev_secret_key_change_this_in_prod')
 
-    DATABASE_URL = os.environ.get('DATABASE_URL', 'sqlite:///pos_secure.db')
+    # Updated database filename to create a fresh DB with the new 'barcode' column
+    DATABASE_URL = os.environ.get('DATABASE_URL', 'sqlite:///' + os.path.join(basedir, 'pos_secure.db'))
     # Fix Heroku/Render postgres URL
     if DATABASE_URL and DATABASE_URL.startswith('postgres://'):
         DATABASE_URL = DATABASE_URL.replace('postgres://', 'postgresql://', 1)
@@ -702,43 +701,59 @@ def import_products(current_user):
     
     if file and file.filename.endswith('.csv'):
         try:
-            stream = io.StringIO(file.stream.read().decode("UTF8"), newline=None)
+            # Use utf-8-sig to handle BOM from Excel
+            stream = io.StringIO(file.stream.read().decode("utf-8-sig"), newline=None)
             csv_input = csv.DictReader(stream)
+            
+            # Normalize headers (strip whitespace)
+            if csv_input.fieldnames:
+                csv_input.fieldnames = [name.strip() for name in csv_input.fieldnames]
             
             added_count = 0
             errors = []
             
             for row in csv_input:
                 try:
+                    # Helper for case-insensitive key lookup
+                    def get_val(keys, default=None):
+                        for k in keys:
+                            if k in row and row[k]:
+                                return row[k]
+                        return default
+
+                    name = get_val(['Name', 'name', 'NAME'])
+                    sku = get_val(['SKU', 'sku', 'Sku'])
+                    price = get_val(['Price', 'price', 'PRICE'])
+
                     # Basic validation
-                    if not row.get('Name') or not row.get('SKU') or not row.get('Price'):
+                    if not name or not sku or not price:
                         continue
                         
                     # Check if exists
-                    if Product.query.filter_by(sku=row['SKU']).first():
+                    if Product.query.filter_by(sku=sku).first():
                         continue 
                     
                     product = Product(
-                        name=row['Name'],
-                        sku=row['SKU'],
-                        category=row.get('Category'),
-                        price=Decimal(row['Price']),
-                        cost=Decimal(row.get('Cost', 0)),
-                        quantity=int(row.get('Quantity', 0)),
-                        reorder_level=int(row.get('Reorder Level', 10)),
-                        unit=row.get('Unit', 'pcs')
+                        name=name,
+                        sku=sku,
+                        category=get_val(['Category', 'category']),
+                        price=Decimal(price),
+                        cost=Decimal(get_val(['Cost', 'cost'], 0)),
+                        quantity=int(get_val(['Quantity', 'quantity'], 0)),
+                        reorder_level=int(get_val(['Reorder Level', 'reorder_level', 'Reorder'], 10)),
+                        unit=get_val(['Unit', 'unit'], 'pcs')
                     )
                     db.session.add(product)
                     added_count += 1
                 except Exception as e:
-                    errors.append(f"Error row {row.get('SKU', '?')}: {str(e)}")
+                    errors.append(f"Error row {row.get('SKU', row.get('sku', '?'))}: {str(e)}")
             
             db.session.commit()
             return jsonify({'message': f'Imported {added_count} products', 'errors': errors})
         except Exception as e:
             db.session.rollback()
             app.logger.error(f'Import error: {str(e)}')
-            return jsonify({'error': 'Import failed. Ensure CSV format is correct.'}), 500
+            return jsonify({'error': f'Import failed: {str(e)}'}), 500
             
     return jsonify({'error': 'Invalid file format. Please upload CSV.'}), 400
 
@@ -785,10 +800,21 @@ def export_products_pdf(current_user):
 def handle_sales(current_user):
     if request.method == 'GET':
         try:
+            search = request.args.get('search', '')
             page = int(request.args.get('page', 1))
             per_page = min(int(request.args.get('per_page', 20)), 100)
             
-            sales = Sale.query.order_by(Sale.created_at.desc()).paginate(page=page, per_page=per_page, error_out=False)
+            query = Sale.query
+            
+            if search:
+                query = query.outerjoin(Customer).filter(
+                    db.or_(
+                        Sale.invoice_number.ilike(f'%{search}%'),
+                        Customer.name.ilike(f'%{search}%')
+                    )
+                )
+            
+            sales = query.order_by(Sale.created_at.desc()).paginate(page=page, per_page=per_page, error_out=False)
             
             sales_data = []
             for sale in sales.items:

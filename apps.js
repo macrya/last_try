@@ -362,9 +362,10 @@ class Auth {
 // ==================== PRODUCT MANAGEMENT ====================
 
 class Products {
-    static async load() {
+    static async load(search = '') {
         try {
-            const data = await api.get('/products?per_page=100');
+            const query = search ? `&search=${encodeURIComponent(search)}` : '';
+            const data = await api.get(`/products?per_page=100${query}`);
             state.products = data.products || [];
             localStorage.setItem('cached_products', JSON.stringify(state.products));
             localStorage.setItem('cached_products_ts', new Date().toISOString());
@@ -606,9 +607,10 @@ class Products {
 // ==================== CUSTOMER MANAGEMENT ====================
 
 class Customers {
-    static async load() {
+    static async load(search = '') {
         try {
-            const data = await api.get('/customers?per_page=100');
+            const query = search ? `&search=${encodeURIComponent(search)}` : '';
+            const data = await api.get(`/customers?per_page=100${query}`);
             state.customers = data.customers || [];
             localStorage.setItem('cached_customers', JSON.stringify(state.customers));
             localStorage.setItem('cached_customers_ts', new Date().toISOString());
@@ -1243,14 +1245,15 @@ class Sales {
         }
     }
 
-    static async loadHistory() {
+    static async loadHistory(search = '') {
         try {
             const container = document.getElementById('salesTable');
             if (!container) return;
 
             UI.showLoading(container);
 
-            const data = await api.get('/sales?per_page=50');
+            const query = search ? `&search=${encodeURIComponent(search)}` : '';
+            const data = await api.get(`/sales?per_page=50${query}`);
             const sales = data.sales || [];
 
             if (sales.length === 0) {
@@ -1634,17 +1637,40 @@ class Forms {
         const formData = new FormData();
         formData.append('file', file);
 
+        // UI Feedback
+        const btn = e.target.querySelector('button[type="submit"]');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '⏳ Importing...';
+        btn.disabled = true;
+
         try {
-            await fetch(`${CONFIG.API_URL}/import/products`, {
+            const response = await fetch(`${CONFIG.API_URL}/import/products`, {
                 method: 'POST',
                 headers: { 'Authorization': `Bearer ${state.token}` },
                 body: formData
             });
-            UI.showAlert('Products imported successfully', 'success');
+            
+            const result = await response.json();
+
+            if (!response.ok) {
+                throw new Error(result.error || 'Import failed');
+            }
+
+            if (result.errors && result.errors.length > 0) {
+                UI.showAlert(`Imported ${result.message}. Check console for ${result.errors.length} errors.`, 'warning');
+                console.warn('Import errors:', result.errors);
+            } else {
+                UI.showAlert(result.message || 'Products imported successfully', 'success');
+            }
+            
             Modal.close('importProductModal');
             Products.load();
+            fileInput.value = ''; // Reset input
         } catch (error) {
-            UI.showAlert('Import failed', 'danger');
+            UI.showAlert(error.message, 'danger');
+        } finally {
+            btn.innerHTML = originalText;
+            btn.disabled = false;
         }
     }
     static async handleAddProduct(e) {
@@ -1930,7 +1956,10 @@ class App {
                 <div class="card">
                     <div class="card-header">
                         <span>Product Management</span>
-                        <button class="btn btn-primary" onclick="Modal.open('addProductModal')">+ Add Product</button>
+                        <div style="display: flex; gap: 10px;">
+                            <input type="text" class="form-control" placeholder="Search products..." style="width: 200px;" onchange="Products.load(this.value)">
+                            <button class="btn btn-primary" onclick="Modal.open('addProductModal')">+ Add Product</button>
+                        </div>
                     </div>
                     <div id="productsManagementTable"></div>
                 </div>
@@ -1944,7 +1973,10 @@ class App {
                 <div class="card">
                     <div class="card-header">
                         <span>Customer Management</span>
-                        <button class="btn btn-primary" onclick="Modal.open('addCustomerModal')">+ Add Customer</button>
+                        <div style="display: flex; gap: 10px;">
+                            <input type="text" class="form-control" placeholder="Search customers..." style="width: 200px;" onchange="Customers.load(this.value)">
+                            <button class="btn btn-primary" onclick="Modal.open('addCustomerModal')">+ Add Customer</button>
+                        </div>
                     </div>
                     <div id="customersManagementTable"></div>
                 </div>
@@ -1988,7 +2020,12 @@ class App {
         return `
             <div id="salesTab" class="tab-content hidden">
                 <div class="card">
-                    <div class="card-header">Sales History</div>
+                    <div class="card-header">
+                        <span>Sales History</span>
+                        <div style="display: flex; gap: 10px;">
+                            <input type="text" class="form-control" placeholder="Search invoice or customer..." style="width: 250px;" onchange="Sales.loadHistory(this.value)">
+                        </div>
+                    </div>
                     <div id="salesTable"></div>
                 </div>
             </div>

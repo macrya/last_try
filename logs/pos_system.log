@@ -1,2 +1,43 @@
 2026-01-08 20:01:43,144 INFO: Admin user created [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:1751]
 2026-01-08 20:01:43,162 INFO: Sample products created [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:1771]
+2026-01-10 21:50:07,313 INFO: Admin user created [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:1747]
+2026-01-10 21:50:07,331 INFO: Sample products created [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:1767]
+2026-01-10 21:57:16,313 ERROR: Get customers error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:503]
+2026-01-10 21:57:29,334 ERROR: Get customers error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:503]
+2026-01-10 21:58:04,799 ERROR: Get customers error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:503]
+2026-01-10 21:58:04,843 ERROR: Get customers error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:503]
+2026-01-10 22:21:23,365 INFO: Admin user created [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:1777]
+2026-01-10 22:21:23,427 INFO: Sample products created [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:1797]
+2026-01-10 22:22:16,159 INFO: Admin user created [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:1777]
+2026-01-10 22:22:16,185 INFO: Sample products created [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:1797]
+2026-01-10 22:34:57,075 ERROR: Get customers error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:506]
