@@ -407,6 +407,8 @@ def serve_frontend():
 
 @app.route('/<path:path>')
 def serve_static(path):
+    if path.endswith(('.py', '.db', '.env', '.git')) or '..' in path:
+        return jsonify({'error': 'Access denied'}), 403
     return send_from_directory('.', path)
 
 @app.route('/api/health')
@@ -836,6 +838,13 @@ def handle_sales(current_user):
             if not data or not data.get('items') or not data.get('payment_method'):
                 return jsonify({'error': 'Items and payment method required'}), 400
             
+            if data['payment_method'] == 'credit' and not data.get('customer_id'):
+                return jsonify({'error': 'Customer is required for credit sales'}), 400
+
+            if data.get('customer_id'):
+                if not Customer.query.get(data['customer_id']):
+                    return jsonify({'error': 'Invalid customer ID'}), 400
+            
             invoice_number = Sale.generate_invoice_number()
             subtotal = Decimal('0')
             sale_items = []
@@ -846,6 +855,9 @@ def handle_sales(current_user):
                     return jsonify({'error': f'Product not found: {item["product_id"]}'}), 404
                 
                 quantity = int(item['quantity'])
+                if quantity <= 0:
+                    return jsonify({'error': f'Invalid quantity for {product.name}'}), 400
+                
                 if product.quantity < quantity:
                     return jsonify({'error': f'Insufficient stock for {product.name}'}), 400
                 
@@ -863,7 +875,10 @@ def handle_sales(current_user):
             tax_rate = Decimal(str(data.get('tax_rate', 16)))
             tax = subtotal * tax_rate / Decimal('100')
             discount = Decimal(str(data.get('discount', 0)))
-            total = subtotal + tax - discount
+            if discount < 0:
+                return jsonify({'error': 'Discount cannot be negative'}), 400
+            
+            total = max(Decimal('0'), subtotal + tax - discount)
             
             sale = Sale(
                 invoice_number=invoice_number,

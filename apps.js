@@ -59,7 +59,7 @@ class APIClient {
 
         // Add timeout handling (10 seconds)
         const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 10000);
+        const timeoutId = setTimeout(() => controller.abort(), 30000);
 
         try {
             console.log(`[API] ${options.method || 'GET'} ${CONFIG.API_URL}${endpoint}`);
@@ -1072,7 +1072,8 @@ class Sales {
     static updatePaymentTotal() {
         const subtotal = state.cart.reduce((sum, item) => sum + item.subtotal, 0);
         const tax = 0;
-        const discount = parseFloat(document.getElementById('paymentDiscount').value) || 0;
+        let discount = parseFloat(document.getElementById('paymentDiscount').value) || 0;
+        if (discount < 0) discount = 0;
         const total = Math.max(0, subtotal + tax - discount);
         
         document.getElementById('paymentTotal').textContent = UI.formatCurrency(total);
@@ -1170,6 +1171,11 @@ class Sales {
             return;
         }
 
+        if (state.selectedPaymentMethod === 'credit' && !state.selectedCustomer) {
+            UI.showAlert('Customer is required for credit sales', 'warning');
+            return;
+        }
+
         const btn = document.getElementById('completeSaleBtn');
         if (!btn) return;
         const originalText = btn.innerHTML;
@@ -1181,6 +1187,10 @@ class Sales {
             const subtotal = state.cart.reduce((sum, item) => sum + item.subtotal, 0);
             const tax = 0;
             const discount = parseFloat(document.getElementById('paymentDiscount').value) || 0;
+            if (discount < 0) {
+                UI.showAlert('Discount cannot be negative', 'warning');
+                return;
+            }
             const total = Math.max(0, subtotal + tax - discount);
 
             const saleData = {
@@ -2284,7 +2294,7 @@ class App {
 
                     <div class="form-group">
                         <label class="form-label">Discount (KSh)</label>
-                        <input type="number" class="form-control" id="paymentDiscount" value="0" step="0.01" oninput="Sales.updatePaymentTotal()">
+                        <input type="number" class="form-control" id="paymentDiscount" value="0" min="0" step="0.01" oninput="Sales.updatePaymentTotal()">
                     </div>
 
                     <div class="form-group">
