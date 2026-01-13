@@ -1250,9 +1250,9 @@ def dashboard_stats(current_user):
         monthly_sales = Sale.query.filter(Sale.created_at >= last_30_days).all()
         
         return jsonify({
-            'today_revenue': sum(float(s.total) for s in today_sales),
+            'today_revenue': sum(float(s.total or 0) for s in today_sales),
             'today_transactions': len(today_sales),
-            'monthly_revenue': sum(float(s.total) for s in monthly_sales),
+            'monthly_revenue': sum(float(s.total or 0) for s in monthly_sales),
             'total_customers': Customer.query.filter_by(is_active=True).count(),
             'total_products': Product.query.filter_by(is_active=True).count(),
             'low_stock_alerts': Product.query.filter(

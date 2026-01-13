@@ -45,6 +45,24 @@ def check_database():
         except sqlite3.OperationalError as e:
             print(f"Error querying products: {e}")
 
+        # Check Stock Movements
+        print("\n--- STOCK MOVEMENTS ---")
+        try:
+            cursor.execute("PRAGMA table_info(stock_movements)")
+            columns = [row[1] for row in cursor.fetchall()]
+            if columns:
+                print(f"Columns: {columns}")
+                required_cols = ['quantity', 'user_id', 'reference', 'notes']
+                for col in required_cols:
+                    if col not in columns:
+                        print(f"ERROR: '{col}' column is MISSING in stock_movements table!")
+                    else:
+                        print(f"OK: '{col}' column exists.")
+            else:
+                print("Table 'stock_movements' does not exist.")
+        except Exception as e:
+            print(f"Error checking stock_movements: {e}")
+
     except Exception as e:
         print(f"General Error: {e}")
     finally:

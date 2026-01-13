@@ -1569,7 +1569,7 @@ class Modal {
 // ==================== TAB MANAGEMENT ====================
 
 class Tabs {
-    static show(tabName) {
+    static show(tabName, btn) {
         document.querySelectorAll('.tab-content').forEach(tab => tab.classList.add('hidden'));
         document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
         
@@ -1578,7 +1578,9 @@ class Tabs {
             tabContent.classList.remove('hidden');
         }
         
-        event.target.classList.add('active');
+        if (btn) {
+            btn.classList.add('active');
+        }
         state.currentTab = tabName;
 
         switch(tabName) {
@@ -1850,11 +1852,11 @@ class App {
                 </div>
 
                 <div class="nav-tabs">
-                    <button class="nav-tab active" onclick="Tabs.show('pos')">📦 Point of Sale</button>
-                    <button class="nav-tab" onclick="Tabs.show('products')">🏷️ Products</button>
-                    <button class="nav-tab" onclick="Tabs.show('customers')">👥 Customers</button>
-                    <button class="nav-tab" onclick="Tabs.show('reports')">📈 Reports</button>
-                    <button class="nav-tab" onclick="Tabs.show('sales')">🧾 Sales History</button>
+                    <button class="nav-tab active" onclick="Tabs.show('pos', this)">📦 Point of Sale</button>
+                    <button class="nav-tab" onclick="Tabs.show('products', this)">🏷️ Products</button>
+                    <button class="nav-tab" onclick="Tabs.show('customers', this)">👥 Customers</button>
+                    <button class="nav-tab" onclick="Tabs.show('reports', this)">📈 Reports</button>
+                    <button class="nav-tab" onclick="Tabs.show('sales', this)">🧾 Sales History</button>
                 </div>
 
                 ${this.renderPOSTab()}

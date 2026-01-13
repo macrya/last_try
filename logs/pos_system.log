@@ -437,3 +437,343 @@ WHERE customers.is_active = 1
 [SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
 [parameters: (5, 2, 'out', 'INV-20260112212945-145D35', None, 2, '2026-01-12 21:29:45.975785')]
 (Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 08:42:27,774 ERROR: Get customers error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:506]
+2026-01-13 08:42:45,451 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (30, 2, 'out', 'INV-20260113054245-A218D4', None, 2, '2026-01-13 05:42:45.439082')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 08:42:46,345 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (30, 2, 'out', 'INV-20260113054246-83A5D8', None, 2, '2026-01-13 05:42:46.345726')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 08:42:47,490 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (30, 2, 'out', 'INV-20260113054247-896D05', None, 2, '2026-01-13 05:42:47.490399')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 08:42:48,197 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (30, 2, 'out', 'INV-20260113054248-461FB8', None, 2, '2026-01-13 05:42:48.197054')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 08:42:48,916 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (30, 2, 'out', 'INV-20260113054248-57F432', None, 2, '2026-01-13 05:42:48.916895')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 08:42:50,345 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (30, 2, 'out', 'INV-20260113054250-005CC6', None, 2, '2026-01-13 05:42:50.345565')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 08:43:00,432 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (30, 2, 'out', 'INV-20260113054300-EF87E9', None, 2, '2026-01-13 05:43:00.432702')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 08:43:54,148 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (30, 2, 'out', 'INV-20260113054354-C22E80', None, 2, '2026-01-13 05:43:54.147378')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 08:48:18,366 ERROR: Get customers error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:506]
+2026-01-13 08:48:18,378 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named notes
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (30, 2, 'out', 'INV-20260113054818-AC5427', None, 2, '2026-01-13 05:48:18.370429')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 08:48:35,540 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named notes
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (32, 1, 'out', 'INV-20260113054835-9B0DE9', None, 2, '2026-01-13 05:48:35.526711')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 08:48:36,448 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named notes
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (32, 1, 'out', 'INV-20260113054836-B11B27', None, 2, '2026-01-13 05:48:36.448615')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 08:48:37,460 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named notes
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (32, 1, 'out', 'INV-20260113054837-06419E', None, 2, '2026-01-13 05:48:37.460491')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 08:48:38,153 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named notes
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (32, 1, 'out', 'INV-20260113054838-836EE6', None, 2, '2026-01-13 05:48:38.153861')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 08:48:38,886 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named notes
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (32, 1, 'out', 'INV-20260113054838-553868', None, 2, '2026-01-13 05:48:38.886656')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 08:48:47,161 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named notes
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (32, 1, 'out', 'INV-20260113054847-819BFB', None, 2, '2026-01-13 05:48:47.161591')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 08:49:24,042 ERROR: Get customers error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:506]
+2026-01-13 08:49:26,656 ERROR: Dashboard error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT count(*) AS count_1 
+FROM (SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1) AS anon_1]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:1265]
+2026-01-13 08:49:33,853 ERROR: Dashboard error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT count(*) AS count_1 
+FROM (SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1) AS anon_1]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:1265]
+2026-01-13 08:49:34,893 ERROR: Get customers error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:506]
+2026-01-13 08:49:36,159 ERROR: Dashboard error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT count(*) AS count_1 
+FROM (SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1) AS anon_1]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:1265]
+2026-01-13 08:49:36,691 ERROR: Get customers error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:506]
+2026-01-13 08:49:37,385 ERROR: Dashboard error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT count(*) AS count_1 
+FROM (SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1) AS anon_1]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:1265]
+2026-01-13 08:50:37,133 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named notes
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (30, 2, 'out', 'INV-20260113055037-AC873B', None, 2, '2026-01-13 05:50:37.132878')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 08:50:37,170 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named notes
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (30, 2, 'out', 'INV-20260113055037-FA7E2F', None, 2, '2026-01-13 05:50:37.168195')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 08:50:37,218 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named notes
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (32, 1, 'out', 'INV-20260113055037-9C5C22', None, 2, '2026-01-13 05:50:37.217021')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 08:50:37,285 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named notes
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (32, 1, 'out', 'INV-20260113055037-F083CB', None, 2, '2026-01-13 05:50:37.284185')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 08:55:58,123 ERROR: Get customers error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:506]
+2026-01-13 08:55:58,192 ERROR: Sale error: (sqlite3.IntegrityError) NOT NULL constraint failed: stock_movements.quantity_change
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (30, 2, 'out', 'INV-20260113055558-4A341C', None, 2, '2026-01-13 05:55:58.190236')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 08:55:58,313 ERROR: Sale error: (sqlite3.IntegrityError) NOT NULL constraint failed: stock_movements.quantity_change
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (32, 1, 'out', 'INV-20260113055558-55D7D0', None, 2, '2026-01-13 05:55:58.312527')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 08:56:01,865 ERROR: Get customers error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:506]
+2026-01-13 08:56:03,690 ERROR: Dashboard error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT count(*) AS count_1 
+FROM (SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1) AS anon_1]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:1265]
+2026-01-13 08:56:04,650 ERROR: Get customers error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:506]
+2026-01-13 08:56:05,437 ERROR: Dashboard error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT count(*) AS count_1 
+FROM (SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1) AS anon_1]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:1265]
+2026-01-13 09:04:04,953 ERROR: Get customers error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:506]
+2026-01-13 09:04:05,014 ERROR: Sale error: (sqlite3.IntegrityError) NOT NULL constraint failed: stock_movements.quantity_change
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (30, 2, 'out', 'INV-20260113060404-67413E', None, 2, '2026-01-13 06:04:05.003296')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 09:04:05,161 ERROR: Sale error: (sqlite3.IntegrityError) NOT NULL constraint failed: stock_movements.quantity_change
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (32, 1, 'out', 'INV-20260113060405-B1959F', None, 2, '2026-01-13 06:04:05.146339')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 09:04:06,864 ERROR: Get customers error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:506]
+2026-01-13 09:04:08,320 ERROR: Dashboard error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT count(*) AS count_1 
+FROM (SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1) AS anon_1]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:1265]
+2026-01-13 09:04:10,609 ERROR: Get customers error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:506]
+2026-01-13 09:10:59,383 ERROR: Get customers error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:506]
+2026-01-13 09:10:59,405 ERROR: Sale error: (sqlite3.IntegrityError) NOT NULL constraint failed: stock_movements.quantity_change
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (30, 2, 'out', 'INV-20260113061059-B72F29', None, 2, '2026-01-13 06:10:59.403065')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 09:10:59,510 ERROR: Sale error: (sqlite3.IntegrityError) NOT NULL constraint failed: stock_movements.quantity_change
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (32, 1, 'out', 'INV-20260113061059-D9388E', None, 2, '2026-01-13 06:10:59.509921')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 09:11:01,216 ERROR: Get customers error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:506]
+2026-01-13 09:11:02,949 ERROR: Dashboard error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT count(*) AS count_1 
+FROM (SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1) AS anon_1]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:1265]
+2026-01-13 09:16:02,191 ERROR: Get customers error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:506]
+2026-01-13 09:16:02,235 ERROR: Sale error: (sqlite3.IntegrityError) NOT NULL constraint failed: stock_movements.quantity_change
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (30, 2, 'out', 'INV-20260113061602-2DF4A3', None, 2, '2026-01-13 06:16:02.233743')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 09:16:02,364 ERROR: Sale error: (sqlite3.IntegrityError) NOT NULL constraint failed: stock_movements.quantity_change
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (32, 1, 'out', 'INV-20260113061602-DCC263', None, 2, '2026-01-13 06:16:02.358139')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 09:16:04,156 ERROR: Get customers error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:506]
+2026-01-13 09:16:05,168 ERROR: Dashboard error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT count(*) AS count_1 
+FROM (SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1) AS anon_1]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:1265]
+2026-01-13 09:16:05,867 ERROR: Dashboard error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT count(*) AS count_1 
+FROM (SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1) AS anon_1]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:1265]
+2026-01-13 09:16:06,118 ERROR: Dashboard error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT count(*) AS count_1 
+FROM (SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1) AS anon_1]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:1265]
+2026-01-13 09:16:06,372 ERROR: Dashboard error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT count(*) AS count_1 
+FROM (SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1) AS anon_1]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:1265]
+2026-01-13 09:16:06,586 ERROR: Dashboard error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT count(*) AS count_1 
+FROM (SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1) AS anon_1]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:1265]
+2026-01-13 09:16:06,831 ERROR: Dashboard error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT count(*) AS count_1 
+FROM (SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1) AS anon_1]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:1265]
+2026-01-13 09:16:07,053 ERROR: Dashboard error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT count(*) AS count_1 
+FROM (SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1) AS anon_1]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:1265]
+2026-01-13 09:16:07,279 ERROR: Dashboard error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT count(*) AS count_1 
+FROM (SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1) AS anon_1]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:1265]
+2026-01-13 09:16:07,496 ERROR: Dashboard error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT count(*) AS count_1 
+FROM (SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1) AS anon_1]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:1265]
+2026-01-13 09:16:07,692 ERROR: Dashboard error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT count(*) AS count_1 
+FROM (SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1) AS anon_1]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:1265]
+2026-01-13 09:16:09,519 ERROR: Dashboard error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT count(*) AS count_1 
+FROM (SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1) AS anon_1]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:1265]
+2026-01-13 09:16:10,028 ERROR: Get customers error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:506]
+2026-01-13 09:16:11,492 ERROR: Dashboard error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT count(*) AS count_1 
+FROM (SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1) AS anon_1]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:1265]
