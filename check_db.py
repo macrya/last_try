@@ -22,6 +22,13 @@ def check_database():
             print(f"Total Customers: {count}")
             
             if count > 0:
+                # Check how many are actually active
+                cursor.execute("SELECT count(*) FROM customers WHERE is_active = 1")
+                active_count = cursor.fetchone()[0]
+                print(f"Active Customers: {active_count}")
+                if active_count == 0:
+                    print("WARNING: All customers are inactive or have NULL status. Run update_db.py to fix.")
+
                 cursor.execute("SELECT id, name, is_active FROM customers LIMIT 5")
                 print("Sample Customers:")
                 for row in cursor.fetchall():

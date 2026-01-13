@@ -4,7 +4,7 @@ const CONFIG = {
     API_URL: window.location.origin + '/api',
     TOKEN_KEY: 'pos_auth_token',
     USER_KEY: 'pos_current_user',
-    JWT_EXPIRATION_HOURS: 8
+    JWT_EXPIRATION_HOURS: 24
 };
 
 // ==================== STATE MANAGEMENT ====================
@@ -944,10 +944,10 @@ class Cart {
         this.render();
     }
 
-    static clear() {
+    static clear(silent = false) {
         if (state.cart.length === 0) return;
         
-        if (confirm('Clear the cart?')) {
+        if (silent || confirm('Clear the cart?')) {
             state.cart = [];
             this.render();
         }
@@ -1048,7 +1048,6 @@ class Sales {
         state.selectedPaymentMethod = null;
         document.getElementById('paymentDiscount').value = '0';
         document.getElementById('paymentNotes').value = '';
-        document.getElementById('completeSaleBtn').disabled = true;
         
         document.querySelectorAll('.payment-option').forEach(opt => {
             opt.classList.remove('selected');
@@ -1057,15 +1056,17 @@ class Sales {
         Modal.open('paymentModal');
     }
 
-    static selectPaymentMethod(method) {
+    static selectPaymentMethod(method, event) {
         state.selectedPaymentMethod = method;
         
         document.querySelectorAll('.payment-option').forEach(opt => {
             opt.classList.remove('selected');
         });
         
-        event.target.closest('.payment-option').classList.add('selected');
-        document.getElementById('completeSaleBtn').disabled = false;
+        if (event && event.target) {
+            const el = event.target.closest('.payment-option');
+            if (el) el.classList.add('selected');
+        }
     }
 
     static updatePaymentTotal() {
@@ -1170,6 +1171,7 @@ class Sales {
         }
 
         const btn = document.getElementById('completeSaleBtn');
+        if (!btn) return;
         const originalText = btn.innerHTML;
 
         try {
@@ -1220,7 +1222,7 @@ class Sales {
             }
             
             Modal.close('paymentModal');
-            Cart.clear();
+            Cart.clear(true);
             Customers.clear();
             state.selectedPaymentMethod = null;
             
@@ -2007,7 +2009,8 @@ class App {
                         <input type="date" class="form-control" id="reportStartDate">
                         <input type="date" class="form-control" id="reportEndDate" style="margin-top: 10px;">
                     </div>
-                    <   <button class="btn btn-primary" onclick="Reports.generate()">Generate Report</button>
+                    <div style="margin-top: 15px;">
+                        <button class="btn btn-primary" onclick="Reports.generate()">Generate Report</button>
                         <button class="btn btn-secondary" onclick="Reports.downloadPDF()" id="btnDownloadPdf" style="display: none;">📥 Download PDF</button>
                     </div>
                     <div id="reportContent" style="margin-top: 20px;"></div>
@@ -2262,16 +2265,16 @@ class App {
                     <div class="form-group">
                         <label class="form-label">Payment Method *</label>
                         <div class="payment-grid">
-                            <div class="payment-option" onclick="Sales.selectPaymentMethod('cash')">
+                            <div class="payment-option" onclick="Sales.selectPaymentMethod('cash', event)">
                                 💵 Cash
                             </div>
-                            <div class="payment-option" onclick="Sales.selectPaymentMethod('mpesa')">
+                            <div class="payment-option" onclick="Sales.selectPaymentMethod('mpesa', event)">
                                 📱 M-Pesa
                             </div>
-                            <div class="payment-option" onclick="Sales.selectPaymentMethod('card')">
+                            <div class="payment-option" onclick="Sales.selectPaymentMethod('card', event)">
                                 💳 Card
                             </div>
-                            <div class="payment-option" onclick="Sales.selectPaymentMethod('credit')">
+                            <div class="payment-option" onclick="Sales.selectPaymentMethod('credit', event)">
                                 📝 Credit
                             </div>
                         </div>
@@ -2287,7 +2290,7 @@ class App {
                         <textarea class="form-control" id="paymentNotes"></textarea>
                     </div>
 
-                    <button class="btn btn-success btn-block" onclick="Sales.complete()" id="completeSaleBtn" disabled>
+                    <button class="btn btn-success btn-block" onclick="Sales.complete()" id="completeSaleBtn">
                         Complete Sale
                     </button>
                 </div>
@@ -2361,3 +2364,4 @@ window.Reports = Reports;
 window.Modal = Modal;
 window.Tabs = Tabs;
 window.Forms = Forms;
+window.customerSelector = customerSelector;

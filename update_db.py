@@ -31,6 +31,27 @@ def update_database():
         cursor.execute("CREATE UNIQUE INDEX IF NOT EXISTS ix_products_barcode ON products (barcode)")
         print(" - Index 'ix_products_barcode' created/verified.")
 
+        # 3. Remove legacy 'password' column if exists (cleanup for security)
+        print("Attempting to remove legacy 'password' column from users table...")
+        try:
+            cursor.execute("ALTER TABLE users DROP COLUMN password")
+            print(" - Legacy column 'password' removed.")
+        except sqlite3.OperationalError as e:
+            if "no such column" in str(e):
+                print(" - Column 'password' does not exist. Clean.")
+            else:
+                print(f" - Note: Could not remove column (might be old SQLite version): {e}")
+
+        # 4. Fix NULL is_active fields (Data Repair)
+        print("Checking for NULL is_active fields...")
+        cursor.execute("UPDATE customers SET is_active = 1 WHERE is_active IS NULL")
+        if cursor.rowcount > 0:
+            print(f" - Fixed {cursor.rowcount} customers with NULL is_active status.")
+        
+        cursor.execute("UPDATE products SET is_active = 1 WHERE is_active IS NULL")
+        if cursor.rowcount > 0:
+            print(f" - Fixed {cursor.rowcount} products with NULL is_active status.")
+
         conn.commit()
         print("\nSuccess! Database schema updated.")
         print("You can now run the application using 'python app.py' or 'python app_secure.py'")

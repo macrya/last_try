@@ -887,7 +887,7 @@ def handle_sales(current_user):
                     product_id=item_data['product'].id,
                     quantity=item_data['quantity'],
                     unit_price=item_data['unit_price'],
-                    subtotal=item_subtotal
+                    subtotal=item_data['subtotal']
                 )
                 db.session.add(sale_item)
                 
@@ -910,23 +910,40 @@ def handle_sales(current_user):
             )
             db.session.add(payment)
             
+            customer_obj = None
             if sale.customer_id:
-                customer = Customer.query.get(sale.customer_id)
-                if customer:
+                customer_obj = Customer.query.get(sale.customer_id)
+                if customer_obj:
                     points = int(float(total) / 100)
-                    customer.loyalty_points += points
-                    if sale.payment_status == 'credit':
-                        customer.current_balance += total
+                    customer_obj.loyalty_points += points
+                    if sale.payment_method == 'credit':
+                        customer_obj.current_balance += total
             
             db.session.commit()
             
+            # Return full receipt data to avoid extra API call and fix printing
+            receipt_data = {
+                'id': sale.id,
+                'invoice_number': sale.invoice_number,
+                'date': sale.created_at.isoformat(),
+                'customer': customer_obj.to_dict() if customer_obj else {'name': 'Walk-in Customer'},
+                'items': [{
+                    'product_name': item['product'].name,
+                    'quantity': item['quantity'],
+                    'unit_price': float(item['unit_price']),
+                    'subtotal': float(item['subtotal'])
+                } for item in sale_items],
+                'subtotal': float(sale.subtotal),
+                'tax': float(sale.tax),
+                'discount': float(sale.discount),
+                'total': float(sale.total),
+                'payment_method': sale.payment_method,
+                'cashier': current_user.username
+            }
+
             return jsonify({
                 'message': 'Sale completed',
-                'sale': {
-                    'id': sale.id,
-                    'invoice_number': sale.invoice_number,
-                    'total': float(sale.total)
-                }
+                'sale': receipt_data
             }), 201
         
         except Exception as e:

@@ -41,3 +41,399 @@ WHERE customers.is_active = 1
  LIMIT ? OFFSET ?]
 [parameters: (100, 0)]
 (Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:506]
+2026-01-12 20:53:46,338 INFO: Admin user created [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:1776]
+2026-01-12 20:53:46,364 INFO: Sample products created [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:1796]
+2026-01-12 22:23:04,709 ERROR: Get customers error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:505]
+2026-01-12 22:23:29,308 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING id]
+[parameters: (71, 3, 'out', 'INV-20260112192329-570279', None, 2, '2026-01-12 19:23:29.307064')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:933]
+2026-01-12 22:23:32,214 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING id]
+[parameters: (71, 3, 'out', 'INV-20260112192332-C7C36F', None, 2, '2026-01-12 19:23:32.214768')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:933]
+2026-01-12 22:23:36,775 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING id]
+[parameters: (71, 3, 'out', 'INV-20260112192336-D82339', None, 2, '2026-01-12 19:23:36.775499')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:933]
+2026-01-12 22:23:42,572 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING id]
+[parameters: (71, 3, 'out', 'INV-20260112192342-2673DD', None, 2, '2026-01-12 19:23:42.572667')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:933]
+2026-01-12 22:23:42,864 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING id]
+[parameters: (71, 3, 'out', 'INV-20260112192342-7E9176', None, 2, '2026-01-12 19:23:42.859644')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:933]
+2026-01-12 22:24:00,078 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING id]
+[parameters: (71, 3, 'out', 'INV-20260112192400-217A9A', None, 2, '2026-01-12 19:24:00.076143')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:933]
+2026-01-12 22:24:01,952 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING id]
+[parameters: (71, 3, 'out', 'INV-20260112192401-ADF7ED', None, 2, '2026-01-12 19:24:01.952630')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:933]
+2026-01-12 22:24:02,179 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING id]
+[parameters: (71, 3, 'out', 'INV-20260112192402-7E5061', None, 2, '2026-01-12 19:24:02.179500')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:933]
+2026-01-12 22:24:02,423 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING id]
+[parameters: (71, 3, 'out', 'INV-20260112192402-E710E9', None, 2, '2026-01-12 19:24:02.421906')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:933]
+2026-01-12 22:24:03,538 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING id]
+[parameters: (71, 3, 'out', 'INV-20260112192403-B9D179', None, 2, '2026-01-12 19:24:03.538572')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:933]
+2026-01-12 22:24:04,072 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING id]
+[parameters: (71, 3, 'out', 'INV-20260112192404-272455', None, 2, '2026-01-12 19:24:04.071062')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:933]
+2026-01-12 22:24:04,404 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING id]
+[parameters: (71, 3, 'out', 'INV-20260112192404-7049B9', None, 2, '2026-01-12 19:24:04.404638')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:933]
+2026-01-12 22:24:05,105 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING id]
+[parameters: (71, 3, 'out', 'INV-20260112192405-A20931', None, 2, '2026-01-12 19:24:05.104305')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:933]
+2026-01-12 22:24:05,442 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING id]
+[parameters: (71, 3, 'out', 'INV-20260112192405-F5506F', None, 2, '2026-01-12 19:24:05.430957')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:933]
+2026-01-12 22:24:06,125 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING id]
+[parameters: (71, 3, 'out', 'INV-20260112192406-21259A', None, 2, '2026-01-12 19:24:06.125092')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:933]
+2026-01-12 22:24:12,892 ERROR: Get customers error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:505]
+2026-01-12 22:24:18,870 ERROR: Get customers error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:505]
+2026-01-12 22:26:09,546 ERROR: Get customers error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:505]
+2026-01-12 22:27:15,442 ERROR: Get customers error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:505]
+2026-01-12 22:27:24,599 ERROR: Get customers error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:505]
+2026-01-12 22:27:24,624 ERROR: Get customers error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:505]
+2026-01-12 22:27:33,955 ERROR: Get customers error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:505]
+2026-01-12 22:27:36,170 ERROR: Get customers error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:505]
+2026-01-12 22:27:38,576 ERROR: Get customers error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:505]
+2026-01-12 22:31:26,683 ERROR: Get customers error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1 OR customers.is_active IS NULL
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:506]
+2026-01-12 22:31:28,229 ERROR: Get customers error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1 OR customers.is_active IS NULL
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:506]
+2026-01-12 22:31:34,618 ERROR: Dashboard error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT count(*) AS count_1 
+FROM (SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1) AS anon_1]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:1249]
+2026-01-12 22:31:42,688 ERROR: Dashboard error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT count(*) AS count_1 
+FROM (SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1) AS anon_1]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:1249]
+2026-01-12 23:34:46,481 ERROR: Get customers error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1 OR customers.is_active IS NULL
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:506]
+2026-01-12 23:34:47,403 ERROR: Get customers error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1 OR customers.is_active IS NULL
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:506]
+2026-01-12 23:35:08,505 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING id]
+[parameters: (30, 1, 'out', 'INV-20260112203508-B0ACBD', None, 2, '2026-01-12 20:35:08.503284')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:935]
+2026-01-12 23:35:16,897 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING id]
+[parameters: (30, 1, 'out', 'INV-20260112203516-3E49BD', None, 2, '2026-01-12 20:35:16.895167')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:935]
+2026-01-13 00:09:45,962 ERROR: Get customers error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:505]
+2026-01-13 00:09:55,552 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (30, 1, 'out', 'INV-20260112210955-AF6E46', None, 2, '2026-01-12 21:09:55.549125')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:933]
+2026-01-13 00:09:56,162 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (30, 1, 'out', 'INV-20260112210956-204217', None, 2, '2026-01-12 21:09:56.162408')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:933]
+2026-01-13 00:09:56,616 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (30, 1, 'out', 'INV-20260112210956-4AF048', None, 2, '2026-01-12 21:09:56.616098')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:933]
+2026-01-13 00:09:56,842 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (30, 1, 'out', 'INV-20260112210956-9931DB', None, 2, '2026-01-12 21:09:56.841536')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:933]
+2026-01-13 00:09:57,087 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (30, 1, 'out', 'INV-20260112210957-1086F6', None, 2, '2026-01-12 21:09:57.082473')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:933]
+2026-01-13 00:09:57,720 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (30, 1, 'out', 'INV-20260112210957-1890AE', None, 2, '2026-01-12 21:09:57.714466')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:933]
+2026-01-13 00:09:58,587 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (30, 1, 'out', 'INV-20260112210958-EE48CE', None, 2, '2026-01-12 21:09:58.577097')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:933]
+2026-01-13 00:18:02,208 ERROR: Get customers error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:506]
+2026-01-13 00:18:25,926 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING id]
+[parameters: (32, 3, 'out', 'INV-20260112211825-7BA5D7', None, 2, '2026-01-12 21:18:25.926447')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:934]
+2026-01-13 00:18:27,354 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING id]
+[parameters: (32, 3, 'out', 'INV-20260112211827-FF9234', None, 2, '2026-01-12 21:18:27.353668')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:934]
+2026-01-13 00:18:28,952 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING id]
+[parameters: (32, 3, 'out', 'INV-20260112211828-077F97', None, 2, '2026-01-12 21:18:28.951395')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:934]
+2026-01-13 00:18:29,578 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING id]
+[parameters: (32, 3, 'out', 'INV-20260112211829-EAF9A2', None, 2, '2026-01-12 21:18:29.578491')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:934]
+2026-01-13 00:18:30,112 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING id]
+[parameters: (32, 3, 'out', 'INV-20260112211830-E5E4DE', None, 2, '2026-01-12 21:18:30.112539')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:934]
+2026-01-13 00:18:30,592 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING id]
+[parameters: (32, 3, 'out', 'INV-20260112211830-95398A', None, 2, '2026-01-12 21:18:30.591164')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:934]
+2026-01-13 00:26:01,311 ERROR: Get customers error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:506]
+2026-01-13 00:26:14,979 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (32, 2, 'out', 'INV-20260112212614-3EB314', None, 2, '2026-01-12 21:26:14.979480')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 00:26:15,814 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (32, 2, 'out', 'INV-20260112212615-3D0885', None, 2, '2026-01-12 21:26:15.801724')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 00:26:16,440 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (32, 2, 'out', 'INV-20260112212616-538497', None, 2, '2026-01-12 21:26:16.439438')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 00:26:17,294 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (32, 2, 'out', 'INV-20260112212617-B1523B', None, 2, '2026-01-12 21:26:17.294387')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 00:26:17,599 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (32, 2, 'out', 'INV-20260112212617-270E79', None, 2, '2026-01-12 21:26:17.597988')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 00:26:17,789 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (32, 2, 'out', 'INV-20260112212617-9B14AD', None, 2, '2026-01-12 21:26:17.789086')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 00:26:18,037 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (32, 2, 'out', 'INV-20260112212618-C8B244', None, 2, '2026-01-12 21:26:18.037413')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 00:26:18,256 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (32, 2, 'out', 'INV-20260112212618-FEC1C9', None, 2, '2026-01-12 21:26:18.255977')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 00:26:18,430 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (32, 2, 'out', 'INV-20260112212618-9EA1BC', None, 2, '2026-01-12 21:26:18.429076')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 00:26:18,810 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (32, 2, 'out', 'INV-20260112212618-E31D0F', None, 2, '2026-01-12 21:26:18.798453')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 00:26:19,797 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (32, 2, 'out', 'INV-20260112212619-3C9B87', None, 2, '2026-01-12 21:26:19.797038')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 00:26:20,076 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (32, 2, 'out', 'INV-20260112212620-69CAC7', None, 2, '2026-01-12 21:26:20.069994')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 00:26:20,317 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (32, 2, 'out', 'INV-20260112212620-91849F', None, 2, '2026-01-12 21:26:20.317838')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 00:26:20,597 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (32, 2, 'out', 'INV-20260112212620-2E83AE', None, 2, '2026-01-12 21:26:20.597804')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 00:26:25,717 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (32, 2, 'out', 'INV-20260112212625-F1E3C1', None, 2, '2026-01-12 21:26:25.715659')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 00:26:26,853 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (32, 2, 'out', 'INV-20260112212626-95E54C', None, 2, '2026-01-12 21:26:26.852409')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 00:26:27,700 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (32, 2, 'out', 'INV-20260112212627-431752', None, 2, '2026-01-12 21:26:27.700600')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 00:26:29,017 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (32, 2, 'out', 'INV-20260112212629-D1D46A', None, 2, '2026-01-12 21:26:29.017091')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 00:26:29,703 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (32, 2, 'out', 'INV-20260112212629-D5D7D0', None, 2, '2026-01-12 21:26:29.703494')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 00:26:30,612 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (32, 2, 'out', 'INV-20260112212630-4420EC', None, 2, '2026-01-12 21:26:30.612463')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 00:26:31,342 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (32, 2, 'out', 'INV-20260112212631-9C93FD', None, 2, '2026-01-12 21:26:31.340756')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 00:26:32,036 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (32, 2, 'out', 'INV-20260112212632-6FD545', None, 2, '2026-01-12 21:26:32.036303')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 00:26:32,638 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (32, 2, 'out', 'INV-20260112212632-BB5F6B', None, 2, '2026-01-12 21:26:32.638248')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 00:26:33,743 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (32, 2, 'out', 'INV-20260112212633-B6AFDA', None, 2, '2026-01-12 21:26:33.743270')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 00:26:35,640 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (32, 2, 'out', 'INV-20260112212635-AFEEBA', None, 2, '2026-01-12 21:26:35.638855')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 00:26:36,459 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (32, 2, 'out', 'INV-20260112212636-29EC13', None, 2, '2026-01-12 21:26:36.459369')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 00:26:37,237 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (32, 2, 'out', 'INV-20260112212637-5D2344', None, 2, '2026-01-12 21:26:37.235377')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 00:29:29,539 ERROR: Get customers error: (sqlite3.OperationalError) no such column: customers.updated_at
+[SQL: SELECT customers.id AS customers_id, customers.name AS customers_name, customers.phone AS customers_phone, customers.email AS customers_email, customers.address AS customers_address, customers.company AS customers_company, customers.credit_limit AS customers_credit_limit, customers.current_balance AS customers_current_balance, customers.loyalty_points AS customers_loyalty_points, customers.is_active AS customers_is_active, customers.created_at AS customers_created_at, customers.updated_at AS customers_updated_at 
+FROM customers 
+WHERE customers.is_active = 1
+ LIMIT ? OFFSET ?]
+[parameters: (100, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:506]
+2026-01-13 00:29:42,889 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (5, 2, 'out', 'INV-20260112212942-EE1146', None, 2, '2026-01-12 21:29:42.887039')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 00:29:43,615 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (5, 2, 'out', 'INV-20260112212943-201126', None, 2, '2026-01-12 21:29:43.615827')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 00:29:44,134 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (5, 2, 'out', 'INV-20260112212944-D02B8F', None, 2, '2026-01-12 21:29:44.134372')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 00:29:44,479 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (5, 2, 'out', 'INV-20260112212944-FE4BF8', None, 2, '2026-01-12 21:29:44.479146')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 00:29:44,719 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (5, 2, 'out', 'INV-20260112212944-EC9ED1', None, 2, '2026-01-12 21:29:44.719733')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 00:29:44,978 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (5, 2, 'out', 'INV-20260112212944-CFF7F4', None, 2, '2026-01-12 21:29:44.977704')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
+2026-01-13 00:29:45,983 ERROR: Sale error: (sqlite3.OperationalError) table stock_movements has no column named quantity
+[SQL: INSERT INTO stock_movements (product_id, quantity, movement_type, reference, notes, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)]
+[parameters: (5, 2, 'out', 'INV-20260112212945-145D35', None, 2, '2026-01-12 21:29:45.975785')]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in c:\Users\MARKRYAN\Documents\GitHub\last_try\app_secure.py:951]
