@@ -990,14 +990,20 @@ def stock_movement(current_user):
     try:
         data = request.get_json()
         
-        if not data or not data.get('product_id') or not data.get('quantity') or not data.get('movement_type'):
+        if not data or 'product_id' not in data or 'quantity' not in data or 'movement_type' not in data:
             return jsonify({'error': 'Product ID, quantity, and type required'}), 400
         
         product = Product.query.filter_by(id=data['product_id'], is_active=True).first()
         if not product:
             return jsonify({'error': 'Product not found'}), 404
         
-        quantity = int(data['quantity'])
+        try:
+            quantity = int(data['quantity'])
+            if quantity < 0:
+                return jsonify({'error': 'Quantity cannot be negative'}), 400
+        except (ValueError, TypeError):
+            return jsonify({'error': 'Invalid quantity'}), 400
+        
         movement_type = data['movement_type']
         
         if movement_type == 'out' and product.quantity < quantity:

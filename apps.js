@@ -566,11 +566,52 @@ class Products {
         
         document.getElementById('stockProductId').value = product.id;
         document.getElementById('stockProductName').textContent = product.name;
-        document.getElementById('stockCurrentQuantity').textContent = product.quantity + ' ' + product.unit;
+        
+        const qtyDisplay = document.getElementById('stockCurrentQuantity');
+        qtyDisplay.textContent = product.quantity + ' ' + product.unit;
+        qtyDisplay.dataset.value = product.quantity;
+        qtyDisplay.dataset.unit = product.unit;
+
+        document.getElementById('stockType').value = 'in';
         document.getElementById('stockQuantity').value = '';
         document.getElementById('stockNotes').value = '';
         
+        this.updateStockPreview();
         Modal.open('stockModal');
+    }
+
+    static handleStockTypeChange() {
+        const type = document.getElementById('stockType').value;
+        const qtyInput = document.getElementById('stockQuantity');
+        const currentQty = parseInt(document.getElementById('stockCurrentQuantity').dataset.value || 0);
+        
+        if (type === 'adjustment') {
+            qtyInput.value = currentQty;
+        } else {
+            qtyInput.value = '';
+        }
+        this.updateStockPreview();
+    }
+
+    static updateStockPreview() {
+        const qtyDisplay = document.getElementById('stockCurrentQuantity');
+        const currentStock = parseInt(qtyDisplay.dataset.value || 0);
+        const unit = qtyDisplay.dataset.unit || '';
+        
+        const type = document.getElementById('stockType').value;
+        const inputQty = parseInt(document.getElementById('stockQuantity').value);
+        const qty = (isNaN(inputQty) || inputQty < 0) ? 0 : inputQty;
+        
+        let newStock = currentStock;
+        if (type === 'in') newStock += qty;
+        else if (type === 'out') newStock -= qty;
+        else if (type === 'adjustment') newStock = qty;
+        
+        const el = document.getElementById('stockNewQuantity');
+        if (el) {
+            el.textContent = newStock + ' ' + unit;
+            el.style.color = newStock < 0 ? 'var(--danger)' : 'var(--primary)';
+        }
     }
 
     static async adjustStock(formData) {
@@ -1725,9 +1766,16 @@ class Forms {
 
     static async handleStockAdjustment(e) {
         e.preventDefault();
+        
+        const quantity = parseInt(document.getElementById('stockQuantity').value);
+        if (isNaN(quantity) || quantity < 0) {
+            UI.showAlert('Please enter a valid quantity', 'warning');
+            return;
+        }
+
         const formData = {
             product_id: parseInt(document.getElementById('stockProductId').value),
-            quantity: parseInt(document.getElementById('stockQuantity').value),
+            quantity: quantity,
             movement_type: document.getElementById('stockType').value,
             notes: document.getElementById('stockNotes').value
         };
@@ -2187,13 +2235,16 @@ class App {
                     </div>
                     <div style="margin-bottom: 20px; padding: 10px; background: rgba(99, 102, 241, 0.1); border-radius: 8px;">
                         <h4 id="stockProductName" style="margin: 0 0 5px 0;"></h4>
-                        <p style="margin: 0; color: var(--text-light);">Current Stock: <strong id="stockCurrentQuantity" style="color: var(--text);"></strong></p>
+                        <div style="display: flex; justify-content: space-between;">
+                            <p style="margin: 0; color: var(--text-light);">Current: <strong id="stockCurrentQuantity" style="color: var(--text);"></strong></p>
+                            <p style="margin: 0; color: var(--text-light);">New: <strong id="stockNewQuantity" style="color: var(--primary);"></strong></p>
+                        </div>
                     </div>
                     <form onsubmit="Forms.handleStockAdjustment(event)">
                         <input type="hidden" id="stockProductId">
                         <div class="form-group">
                             <label class="form-label">Action</label>
-                            <select class="form-control" id="stockType" required>
+                            <select class="form-control" id="stockType" required onchange="Products.handleStockTypeChange()">
                                 <option value="in">📥 Add Stock (Restock)</option>
                                 <option value="out">📤 Remove Stock (Damage/Loss)</option>
                                 <option value="adjustment">🔄 Set Exact Quantity (Correction)</option>
@@ -2201,7 +2252,7 @@ class App {
                         </div>
                         <div class="form-group">
                             <label class="form-label">Quantity *</label>
-                            <input type="number" class="form-control" id="stockQuantity" min="1" required>
+                            <input type="number" class="form-control" id="stockQuantity" min="0" required oninput="Products.updateStockPreview()">
                         </div>
                         <div class="form-group">
                             <label class="form-label">Notes</label>
